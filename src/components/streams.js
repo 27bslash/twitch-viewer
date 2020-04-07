@@ -26,10 +26,15 @@ function Streams() {
         {streams.map((channel, key) => {
           return (
             <div className="card" key={key}>
-              <img
-                src={channel.thumbnail_url}
-                alt="leave me alone warnings"
-              ></img>
+              <a
+                href={`https://www.twitch.tv/${channel.user_name}`}
+                target="_blank"
+              >
+                <img
+                  src={channel.thumbnail_url}
+                  alt="leave me alone warnings"
+                ></img>
+              </a>
               <div className="title">{channel.title}</div>
               <div>{channel.user_name}</div>
               <div>{channel.viewer_count} live viewers</div>

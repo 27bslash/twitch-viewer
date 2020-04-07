@@ -13,7 +13,7 @@ function Games() {
       const result = await api.get(url);
       //console.log(result.data);
       let dataArray = result.data.data;
-      console.log(dataArray);
+      console.log(result.data);
       let finalArray = dataArray.map((item, key) => {
         item.box_art_url = item.box_art_url
           .replace("{width}", 300)

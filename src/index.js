@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Streams from "./components/streams";
 import Header from "./components/header";
 import Games from "./components/games";
+
+
 function App() {
   return (
     <Router>
