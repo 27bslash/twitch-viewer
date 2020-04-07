@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "../styles.css";
 import api from "../api";
-
+import ReactPlayer from "react-player";
+import { Link } from "react-router-dom";
 const url = "https://api.twitch.tv/helix/streams";
 
 function Streams() {
@@ -18,6 +19,7 @@ function Streams() {
       });
       setStreams(finalArray);
     };
+
     getData();
   }, []);
   return (
@@ -26,15 +28,14 @@ function Streams() {
         {streams.map((channel, key) => {
           return (
             <div className="card" key={key}>
-              <a
-                href={`https://www.twitch.tv/${channel.user_name}`}
-                target="_blank"
-              >
-                <img
-                  src={channel.thumbnail_url}
-                  alt="leave me alone warnings"
-                ></img>
-              </a>
+              <div className="img-container">
+                <Link to={`/${channel.user_name}`}>
+                  <img
+                    src={channel.thumbnail_url}
+                    alt="leave me alone warnings"
+                  ></img>
+                </Link>
+              </div>
               <div className="title">{channel.title}</div>
               <div>{channel.user_name}</div>
               <div>{channel.viewer_count} live viewers</div>

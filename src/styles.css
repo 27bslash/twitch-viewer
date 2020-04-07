@@ -66,3 +66,17 @@ img {
   width: 100%;
   height: auto;
 }
+button {
+  background-color: black;
+}
+.vid-container {
+  margin-top: 1rem;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  justify-content: center;
+}
+#twitch-embed {
+  width: 1600px;
+  height: 900px;
+}
