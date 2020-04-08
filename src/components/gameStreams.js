@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from "react";
+//click game get top streams for game click stream -> embed add a way to follow channels mongodb save
+import React from "react";
 import "../styles.css";
 import { Link } from "react-router-dom";
-import useGetData from "./../hook";
-import api from "../api";
+import useGetData from "../hook";
 
-function Streams() {
+function GameStreams() {
   const [streams] = useGetData();
-  const [game, setGame] = useState([]);
-  // runOnce();
   return (
     <div className="App-container">
       <div className="cards">
@@ -29,16 +27,8 @@ function Streams() {
                     {channel.title}
                   </h4>
                 </Link>
-                <a
-                  href={`https://twitch.tv/${channel.user_name}`}
-                  target="_blank"
-                >
-                  <h5 className="user-name" id="channel-text">
-                    {channel.user_name}
-                  </h5>
-                </a>
                 <h5 className="user-name" id="channel-text">
-                  {channel.game_name}
+                  {channel.user_name}
                 </h5>
               </div>
             </div>
@@ -48,4 +38,4 @@ function Streams() {
     </div>
   );
 }
-export default Streams;
+export default GameStreams;

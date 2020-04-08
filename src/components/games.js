@@ -31,7 +31,9 @@ function Games() {
         {games.map((game, key) => {
           return (
             <div className="card" key={key}>
-              <img src={game.box_art_url} alt="leave me alone warnings"></img>
+              <Link to={`game/${game.id}`}>
+                <img src={game.box_art_url} alt="leave me alone warnings"></img>
+              </Link>
               <div className="title">{game.name}</div>
             </div>
           );

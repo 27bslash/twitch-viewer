@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../styles.css";
-import ReactPlayer from "react-player";
 
 function Embed() {
-  console.log(`https://www.twitch.tv${window.location.pathname}`);
+  console.log(window.location.pathname.split("/")[2]);
   return (
     <div className="app-container">
       <div className="vid-container">
         <div id="twitch-embed">
           <iframe
-            src={`https://player.twitch.tv/?channel=${window.location.pathname}&!playsinline&!autoplay&!muted&controls`}
+            src={`https://player.twitch.tv/?channel=${
+              window.location.pathname.split("/")[2]
+            }&!playsinline&!autoplay&!muted&controls`}
             width="1600"
             height="900"
             allowFullScreen="true"
