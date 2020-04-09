@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../styles.css";
 import { Link } from "react-router-dom";
 import useGetData from "./../hook";
-import api from "../api";
 
 function Streams() {
   const [streams] = useGetData();
-  const [game, setGame] = useState([]);
-  // runOnce();
   return (
     <div className="App-container">
+      <div className="title-container"></div>
       <div className="cards">
         {streams.map((channel, key) => {
           return (
@@ -25,21 +23,24 @@ function Streams() {
               </div>
               <div className="text-container">
                 <Link to={`/stream/${channel.user_name}`}>
-                  <h4 className="title" id="channel-text">
+                  <h4 className="stream-title" id="channel-text">
                     {channel.title}
                   </h4>
                 </Link>
                 <a
                   href={`https://twitch.tv/${channel.user_name}`}
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <h5 className="user-name" id="channel-text">
                     {channel.user_name}
                   </h5>
                 </a>
-                <h5 className="user-name" id="channel-text">
-                  {channel.game_name}
-                </h5>
+                <Link to={`/game/${channel.game_id}`}>
+                  <h5 className="user-name" id="channel-text">
+                    {channel.gameName}
+                  </h5>
+                </Link>
               </div>
             </div>
           );

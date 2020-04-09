@@ -15,6 +15,7 @@ function App() {
         <Route exact path="/Top-Games" component={Games} />
         <Route path="/stream/:id" component={Embed} />
         <Route path="/game/:id" component={GameStreams} />
+        {/* <Route path="/game/:id" component={G} /> */}
       </div>
     </Router>
   );

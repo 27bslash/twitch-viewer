@@ -2,12 +2,11 @@ import React from "react";
 import "../styles.css";
 
 function Embed() {
-  console.log(window.location.pathname.split("/")[2]);
   return (
     <div className="app-container">
       <div className="vid-container">
         <div id="twitch-embed">
-          <iframe
+          <iframe title='mp5'
             src={`https://player.twitch.tv/?channel=${
               window.location.pathname.split("/")[2]
             }&!playsinline&!autoplay&!muted&controls`}

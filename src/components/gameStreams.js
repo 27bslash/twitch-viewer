@@ -6,8 +6,15 @@ import useGetData from "../hook";
 
 function GameStreams() {
   const [streams] = useGetData();
+  let name = "";
+  if (streams[0] !== undefined) {
+    name = streams[0].gameName.toUpperCase();
+  }
   return (
     <div className="App-container">
+      <div className="title-container">
+        <h1 className="title">{name} STREAMS</h1>
+      </div>
       <div className="cards">
         {streams.map((channel, key) => {
           return (
@@ -23,13 +30,18 @@ function GameStreams() {
               </div>
               <div className="text-container">
                 <Link to={`/stream/${channel.user_name}`}>
-                  <h4 className="title" id="channel-text">
+                  <h4 className="stream-title" id="channel-text">
                     {channel.title}
                   </h4>
                 </Link>
                 <h5 className="user-name" id="channel-text">
                   {channel.user_name}
                 </h5>
+                <Link to={`/game/${channel.game_id}`}>
+                  <h5 className="user-name" id="channel-text">
+                    {channel.gameName}
+                  </h5>
+                </Link>
               </div>
             </div>
           );

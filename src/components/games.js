@@ -6,27 +6,24 @@ import { Link } from "react-router-dom";
 const url = "https://api.twitch.tv/helix/games/top";
 
 function Games() {
-  console.log("fg");
   const [games, setGames] = useState([]);
   useEffect(() => {
-    const fetchData = async () => {
+    const getData = async () => {
       const result = await api.get(url);
-      //console.log(result.data);
       let dataArray = result.data.data;
-      console.log(result.data);
-      let finalArray = dataArray.map((item, key) => {
+      let finalArray = dataArray.map((item) => {
         item.box_art_url = item.box_art_url
           .replace("{width}", 300)
           .replace("{height}", 300);
         return item;
       });
       setGames(finalArray);
-      console.log(finalArray);
     };
-    fetchData();
+    getData();
   }, []);
   return (
     <div className="App-container">
+      <div className="title-container"></div>
       <div className="cards">
         {games.map((game, key) => {
           return (
